@@ -10,16 +10,16 @@
 }
 .carousel-caption{
 	position: absolute;
-	top: 40%;
+	top: 30%;
 	left: 30%;
-	transform: translate(-50%, -50%);
+	transform: translate(-25%, -25%);
 }
   .carousel-inner img {
     width: 100%;
     height: 100%;
   }
   
-#more {display: none;}
+#more, #more2, #more3, #more4, #more5 {display: none;}
 
 #about:hover {
   background-color: #008CBA;
@@ -304,3 +304,25 @@ a.article:hover {
         display: none;
     }
 }
+
+.Btn-group .button {
+  background-color: #00008b; /* Green */
+  border: 1px solid green;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+}
+
+.Btn-group .button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+.Btn-group .button:hover {
+  background-color: #00bfff;
+}
+.and{visibility: hidden;}
