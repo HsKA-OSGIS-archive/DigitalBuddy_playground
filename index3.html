@@ -16,19 +16,28 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
+	<!-- Leaflet CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
    crossorigin=""/>
-	
+	<!-- Leaflet js -->
      <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
    crossorigin=""></script>
-   
+   <!-- Jquery -->
       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
-   
+   <!-- Leaflet routing machine CSS -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+   <!-- leaflet conrol geocoder CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+   <!-- Leaflet routing machine js -->
    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+   
+	<script src="lrm-graphhopper.js"></script>
+   <!-- leaflet conrol geocoder js -->
+   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+   <!-- lrm-graphopper js -->
+      
 	
 
 	
@@ -41,41 +50,16 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Checkliste</h3>
+                <br></br>
+				<br></br>
+
             </div>
-
-            <ul class="list-unstyled components">
-
-                <li>				
-                    <input type="checkbox" > <span><label>Krankenversicherung</label></span>
-					
-                </li>
-                <li>
-                    
-					<input type="checkbox" ><span><label>Stadtregistrierung</label></span>
-                </li>
-                <li>
-                    
-					<input type="checkbox" ><span><label>Steueridentifikationsnummer</label></span>
-                </li>
-				<li>
-                    
-					<input type="checkbox" ><span><label>Bankkonto</label></span>
-                </li>
-				<li>
-                    
-					<input type="checkbox" ><span><label>Universitätsregistrierung</label></span>
-                </li>
-				<li>
-                    
-					<input type="checkbox" ><span><label>Öffentliche Verkehrsmittel</label></span>
-                </li>
-				<li>
-                   
-					<input type="checkbox" ><span><label>Aufenthaltsgenehmigung</label></span>
-                </li>
-            </ul>
-        </nav>
+				<div class = "Btn-group">
+				  <!--input id = "btn4" type = "button" value = "2018" /-->
+				  <input id = "btn10" class="button" type = "button" value = "City registration"></input>
+				  <input id = "btn37" class="button" type = "button" value = "All formalities"></input>
+				<div> 
+			</nav>
 		
 
         <!-- Page Content  -->
@@ -86,35 +70,32 @@
 
                     <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                        <span>Checkliste umschalten</span>
+                        <span>Formalities</span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-align-justify"></i>
                     </button>
-					<button type="button" class="btn lag" value="en" onclick="window.location.href = 'index.html'" />
-
+					<button type="button" class="btn lag" value="de" onclick="window.location.href = 'index1.html'" />
+					<button type="button" class="btn lag" value="Home" onclick="window.location.href = 'index.html'" />
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-								<input id="btntest" type="button" value="en" 
-       onclick="window.location.href = 'index1.html'" />
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Über Informationen</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Einloggen</a>
-                            </li>
-							
-                        </ul>
+						<input id="btntest" type="button" value="Home" 
+						onclick="window.location.href = 'index.html'" />
+                       
                     </div>
                 </div>
             </nav>
 
-            <h2>Interaktive Karte von Digital Buddy</h2>
+            <h5>Digital Buddy Interactive Map</h5>
 			<!--<div id="map"></div> -->
-			<div class="row">
-	<div id="map" class="col-sm-12"  style="width: 800px; height: 600px "></div>
-	
-
+		<div class="row">
+			<div id="map" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map1" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map2" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map3" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map4" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map5" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map6" class="col-sm-12"  style="width: 800px; height: 600px "></div>
+			<div id="map7" class="col-sm-12"  style="width: 800px; height: 600px "></div>
         </div>
     </div>
 
@@ -126,15 +107,89 @@
                 $('#sidebar').toggleClass('active');
             });
         });
+		
+		
+		       $(document).ready(function () {
+				$('#map1').show();
+				$('#map2').hide();
+				$('#map3').hide();
+				$('#map4').hide();
+				$('#map5').hide();
+				$('#map6').hide();
+				$('#map7').hide();
+				$('#map').hide();
+				
+
+
+				$('#btn10').on('click', function () {
+				$('#map').hide("slow");
+				$('#map2').hide();
+				$('#map3').hide();
+				$('#map4').hide();
+				$('#map5').hide();
+				$('#map6').hide();
+				$('#map7').hide();
+				$('#map1').show();
+				});
+			
+				
+				/*$('#btn37').on('click', function () {
+				$('#map').show();
+				$('#map1').hide();
+				$('#map3').hide();
+				$('#map4').hide();
+				$('#map5').hide();
+				$('#map6').hide();
+				$('#map7').hide();
+				//$('#map').hide();
+				$('#map2').hide();
+				
+					
+				});*/
+				
+				$('#btn37').on('click', function () {
+				window.location.href = 'index2.html';
+
+				});
+        });
+
     </script>
-	
 	<script src="map.js" ></script>
-	
-	
-	
-	
-	
-	
+	<script type="text/javascript" src="features.js"></script>
+	<script type="text/javascript">
+
+
+		var geojsonMarkerOptions1 = {
+			radius: 7,
+			fillColor: " #00ff00",
+			color: "#000",
+			weight: 1,
+			opacity: 1,
+			fillOpacity: 0.8
+		};
+
+		
+		L.geoJSON(cityreg, {
+			pointToLayer: function (feature, latlng) {
+			
+			return L.circleMarker(latlng, geojsonMarkerOptions1);
+			}
+		}).addTo(map);
+		
+
+/////////////////////////////////////////////////////////////////////////////individual maps
+		L.geoJSON(cityreg, {
+			pointToLayer: function (feature, latlng) {
+			
+			return L.circleMarker(latlng, geojsonMarkerOptions1);
+			}
+		}).addTo(map1);
+			
+
+		
+	</script>
+
+
 	<!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <!-- Popper.JS -->

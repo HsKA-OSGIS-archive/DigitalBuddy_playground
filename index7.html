@@ -56,13 +56,8 @@
             </div>
 				<div class = "Btn-group">
 				  <!--input id = "btn4" type = "button" value = "2018" /-->
-				  <input id = "btn10" class="button" type = "button" value = "City registration"></input>
-				  <input id = "btn11" class="button" type = "button" value = "Tax Identification"></input>
-				  <input id = "btn12" class="button" type = "button" value = "Bank account"></input>
-				  <input id = "btn13" class="button" type = "button" value = "Health insurance"></input>
+
 				  <input id = "btn14" class="button" type = "button" value = "University registration"></input>
-				  <input id = "btn15" class="button" type = "button" value = "Residence permit"></input>
-				  <input id = "btn16" class="button" type = "button" value = "Public transport"></input>
 				  <input id = "btn17" class="button" type = "button" value = "All formalities"></input>
 				<div> 
 			</nav>
@@ -120,165 +115,30 @@
 				$('#map2').hide();
 				$('#map3').hide();
 				$('#map4').hide();
-				$('#map5').hide();
+				$('#map5').show();
 				$('#map6').hide();
 				$('#map7').hide();
+				$('#map').hide();
 
-				$('#btn10').on('click', function () {
-				$('#map').hide("slow");
-				$('#map2').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map1').show();
-				});
-			
-				$('#btn11').on('click', function () {
-				$('#map1').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map').hide();
-				$('#map1').hide();
-				$('#map2').show();
-				});
-				$('#btn12').on('click', function () {
-				$('#map1').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map').hide();
-				$('#map2').hide();
-				$('#map3').show();
-				});
-				$('#btn13').on('click', function () {
-				$('#map1').hide();
-				$('#map2').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map').hide();
-				$('#map3').hide();
-				$('#map4').show();
-					
-				});
+
 				$('#btn14').on('click', function () {
-				$('#map1').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map').hide();
-				$('#map2').hide();
 				$('#map5').show();
 					
 				});
-				$('#btn15').on('click', function () {
-				$('#map1').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map').hide();
-				$('#map2').hide();
-				$('#map6').show();
-					
-				});
-				$('#btn16').on('click', function () {
-				$('#map1').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map').hide();
-				$('#map2').hide();
-				$('#map7').show();
-					
-				});
-				$('#btn17').on('click', function () {
-				$('#map').show();
-				$('#map1').hide();
-				$('#map3').hide();
-				$('#map4').hide();
-				$('#map5').hide();
-				$('#map6').hide();
-				$('#map7').hide();
-				$('#map2').hide();
 				
-					
-				});
 				
 				$('#btn17').on('click', function () {
-				window.location.replace = 'index2.html';
+				window.location.href = 'index2.html';
 
 				});
         });
-		$(document).ready(function(){
-			
-});
+
     </script>
 	<script src="map.js" ></script>
 	<script type="text/javascript" src="features.js"></script>
 	<script type="text/javascript">
 
-		var geojsonMarkerOptions = {
-			radius: 5,
-			fillColor: "#FF0000",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
-		};
-		var geojsonMarkerOptions1 = {
-			radius: 7,
-			fillColor: " #00ff00",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
-		};
-		var geojsonMarkerOptions2 = {
-			radius: 7,
-			fillColor: " #fcd116",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
-		};
-			var geojsonMarkerOptions3 = {
-			radius: 5,
-			fillColor: " #0092ff",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
-		};
-			var geojsonMarkerOptions4 = {
-			radius: 5,
-			fillColor: " #ff00d0",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
-		};
-		var geojsonMarkerOptions5 = {
-			radius: 5,
-			fillColor: " #0a0a0a",
-			color: "#000",
-			weight: 1,
-			opacity: 1,
-			fillOpacity: 0.8
-		};
+
 		var geojsonMarkerOptions6 = {
 			radius: 5,
 			fillColor: "#763139",
@@ -287,47 +147,7 @@
 			opacity: 1,
 			fillOpacity: 0.8
 		};
-		L.geoJSON(healthinsurance,{
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions);
-			}
-		}).addTo(map);
-		
-		L.geoJSON(cityreg, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions1);
-			}
-		}).addTo(map);
-		
-		L.geoJSON(banks,{
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions2);
-			}
-		}).addTo(map);
-		
-		L.geoJSON(taxid, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions3);
-			}
-		}).addTo(map);
-		
-		L.geoJSON(publictrans,{
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions4);
-			}
-		}).addTo(map);
-		
-		L.geoJSON(respermit,{
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions5);
-			}
-		}).addTo(map);
+
 		L.geoJSON(universities,{
 			pointToLayer: function (feature, latlng) {
 			
@@ -335,33 +155,7 @@
 			}
 		}).addTo(map);
 /////////////////////////////////////////////////////////////////////////////individual maps
-		L.geoJSON(cityreg, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions1);
-			}
-		}).addTo(map1);
-			
-		L.geoJSON(taxid, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions3);
-			}
-		}).addTo(map2);
-	
-		L.geoJSON(banks, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions2);
-			}
-		}).addTo(map3);
 
-		L.geoJSON(healthinsurance, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions);
-			}
-		}).addTo(map4);
 
 		L.geoJSON(universities, {
 			pointToLayer: function (feature, latlng) {
@@ -370,19 +164,7 @@
 			}
 		}).addTo(map5);
 
-		L.geoJSON(respermit, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions5);
-			}
-		}).addTo(map6);
 
-		L.geoJSON(publictrans, {
-			pointToLayer: function (feature, latlng) {
-			
-			return L.circleMarker(latlng, geojsonMarkerOptions4);
-			}
-		}).addTo(map7);
 		
 	</script>
 

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Digital Buddy</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+	<!-- Leaflet CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+	<!-- Leaflet js -->
+     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+   crossorigin=""></script>
+   
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+   <!-- Leaflet routing machine CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+   <!-- leaflet conrol geocoder CSS -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+   <!-- Leaflet routing machine js -->
+   <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+   
+	<script src="lrm-graphhopper-1.2.0.js"></script>
+   <!-- leaflet conrol geocoder js -->
+   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+   <!-- lrm-graphopper js -->
+      
+
+
+<body>
+	<div id="demo" class="carousel slide" data-ride="carousel">
+	  <ul class="carousel-indicators">
+		<li data-target="#demo" data-slide-to="0" ><li>
+		<li data-target="#demo" data-slide-to="1"></li>
+		<li data-target="#demo" data-slide-to="2"></li>
+		<li data-target="#demo" data-slide-to="3"></li>
+		<li data-target="#demo" data-slide-to="4"></li>
+		<li data-target="#demo" data-slide-to="5"></li>
+	  </ul>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+     <!-- <img src="images/Background3.jpg" alt="Main page" width="100%" height="100%">-->
+      <div class="carousel-caption">
+        <h3>Welcome to your digital buddy</h3>
+        <p>Congratulation on your acceptance!
+This application is intended to guide you through the necessary formalities which are required by almost all international students <span id="dots">.</span><span id ="more">Some of these formalities are mandatory and also are prerequisite for the other formalities. For this reason these formalities are listed based on their order under the formalities section of the page. Their corresponding location in Karlsruhe is indicated on the map. At each location by clicking on the popup marker you can see what documents are required and their website to acquire further information about their opening hours. 
+If you also want to know how to get to a specific office double tab or double click on the marker. This will open a window that asks you to select the location as of your Start/Go and it will give you the options to reach to that specified location. 
+In addition to the formalities layers like University locations, studirentenwerk office, bars, restaurants and so on are included to make your first week of settlement easier.
+To go to the first formality please closes this window and click on the city registration button under checklist section of the page. 
+</span>
+		</p>
+		<button onClick = "aboutFn()" id = "about">Read more</button>
+      </div>   
+    </div>
+	
+	 <div class="carousel-item">
+     <!-- <img src="images/Background3.jpg" alt="page2" width="100%" height="100%">-->
+      <div class="carousel-caption">
+        <h2>Are you familiar with the required formalities?</h2>
+			<p>If you are not familiar with the formalities please continue with the slide show. <br>If you already know the order and required documents for the formalities then press the button yes and go the map which contains the formalities location.</p>
+			<input id="btn1" type="button" value="yes" 
+				onclick="window.location.href = 'index2.html/'" />
+      </div>   
+    </div>
+	
+	 <div class="carousel-item">
+      <!--<img src="images/Background3.jpg" alt="page3" width="100%" height="100%">-->
+      <div class="carousel-caption">
+        <h2>Formalities!</h2>
+			<p>The common required formalities among foreign students are ordered by their number and it starts from City registration. A brief introduction and required document for each formalities can be found in the read more section.</p>
+			<div id = "formality"><h4>1. City registration</h4>
+				<p>This is the first step of all formalities if you move to a new place<p>
+				<p>Have you register your new address in Karlsruhe?</p>
+					
+					<input id="btn1" type="button" value="yes" onclick="unhide()" />
+						<p class = "and">The next step is opening/activate blocked bank accout. For this you need a Tax Identification. Additional information about Tax identification can be found on next slide.</p>
+			</div>
+					<input id="btn2" type="button" value="No, I want to do my city registration" onclick="window.location.href = 'index3.html'" />
+					
+				<p>Everyone in Germany must register their address at the Registration Office<span id="dots2">...</span><span id ="more2"> Einwohnermeldeamt or Burgerburo or Rathaus within the first two weeks as soon as they have found accommodation. Exceptions: if you are registered somewhere else in Germany and are staying less than 6 months in Karlsruhe or if you are from outside of Germany and only planning on living in Karlsruhe for less than 3 months.
+                   If you are still staying in a hotel but needs the registration you could ask your hotel if they will act as a temporary address. You will need a letter of confirmation of your stay from the hotel to take to the Rathaus.
+                    Required documents:
+•	Identity card(s) or Passport
+•	A copy of your rental contract
+•	Duly filled registration form (Anmeldeformular). You can download the Anmeldeformular from the Rathaus website or get one a copy at the Rathaus itself.
+•	Confirmation of your landloard ("Formulare" -> "Wohnungsgeberbestätigung") the for can be found on the link below
+
+Link to download forms: https://web1.karlsruhe.de/service/Buergerdienste/leistung.php?id=6002495
+</span></p>
+				
+						<button onClick = "aboutFn2()" id = "about2">Read more</button>
+			</div>	
+      </div>   
+   	
+	 <div class="carousel-item">
+     <!-- <img src="images/Background3.jpg" alt="page4" width="100%" height="100%">-->
+      <div class="carousel-caption">
+        <h5>2. Tax Identification number</h5> <p>Are you familiar with Tax identification number and wants to know where you can get it, it normaly come to you by post two weeks after your city registration. If you need it urgently and still do not know where you can go, click on yes to see it on the map</p>
+			<input id="btn1" type="button" value="yes" 
+				onclick="TaxId()"/>
+			<p>If you are not familiar you can have a brief idea why by clicking on Read more button</p>
+			<input id="btn2" type="button" value="No I want to get my Tax Identification Number" 
+				onclick="window.location.href = 'index4.html'" />
+				<p>About two weeks following the registration of your place of residence in Germany, you will receive a letter from the Federal Central Tax Office<span id="dots3">...</span><span id ="more3">. This letter contains your tax identification number that you will need for many formal processes in Germany (e.g. receiving your salary, applying for child benefit, opening a bank account, etc.)
+Please keep this number carefully.
+If you need to receive your tax identification number urgently and cannot wait for the letter of the Federal Central Tax Office, please contact the tax office of the city of Karlsruhe directly. You only need your passport or ID. You can ask for your tax identification number one workday after the registration of your new place of residence, at the earliest.
+</span><p> <button onClick = "aboutFn3()" id = "about3">Read more</button>
+      </div>   
+    </div>
+	
+	<div class="carousel-item">
+     <!-- <img src="images/Background3.jpg" alt="page5" width="100%" height="100%">-->
+      <div class="carousel-caption">
+        <h5>3. Open/activate blocked bank account</h5> <p> Some popular banks in Germany are Sparkasse, Deutsche Bank, Volksbank, Postbank, Commerzbank. Banks like N26 which allow you to control your finance with a mobile app are also getting popular. You can get an N26 bank account online by clicking here.</p>
+			<input id="btn1" type="button" value="yes" 
+				onclick="TaxId()"/>
+			<p>List of required documents at this step can be found by clicking on Read more button</p>
+			<input id="btn2" type="button" value="No I want to get my Tax Identification Number" 
+				onclick="window.location.href = 'index5.html'" />
+				<p>List of required documents<span id="dots4">...</span><span id ="more4"> •	Anmeldebestätigung from the Einwohnermeldeamt
+•	Identity card(s) of the person(s) to be registered (Pass / Personalausweis); for example, passport in case of Non-EU citizens.
+•	registration certificate
+•	tax identification number
+•	Passport or ID
+Activate blocked account (Students): For students who have already opened a blocked account while in their home country, should visit their bank and open the blockage on the account. You will need the same documents as above. In addition, you may also need a transfer confirmation letter that you would have got while opening the blocked account in your home country.</p>
+</span><p> <button onClick = "aboutFn4()" id = "about4">Read more</button>
+      </div>   
+    </div>
+	
+	<div class="carousel-item">
+      <!--<img src="images/Background3.jpg" alt="page6" width="100%" height="100%">-->
+      <div class="carousel-caption">
+        <h5>4. Health insurance</h5> <p> </p>
+			<input id="btn1" type="button" value="yes" 
+				onclick="TaxId()"/>
+			<p>Both for matriculation and when applying for a residence permit (Aufenthaltserlaubnis), you will need to provide proof of sufficient health insurance coverage.</p>
+			<input id="btn2" type="button" value="No I want to get my Tax Identification Number" 
+				onclick="window.location.href = 'index6.html'" />
+				<p>List of required documents<span id="dots5">...</span><span id ="more5"> •	University admission 		
+•	Blocked account bank statement or bank details (for direct debit)
+•	Passport 
+•	Photo     			 
+•	Minimum amount of health insurance coverage (for non-german health insurance)
+•	details of any previous German health insurance if you have one
+  Health insurance is mandatory for everyone living in Germany. If you already have a health insurance first please make sure the coverage is suitable for living in Germany. This can be done by asking your health insurance provider. If it is suitable please proceed to your second formality which is the city registration by clicking on the “city registration” button. 
+If you don’t have health insurance yet you have two possibilities; Public statutory health insurance and Private health insurance (Privat Krankenversicherung). In both sector there are many health insurance providers in Germany and it is your responsibility to choose and decide which insurance and benefits are right for you. We recommend taking time and reviewing the available once carefully. For the privet health insurance providers please click on the following link to get an overview of some health insurance companies https://www.international.hu-berlin.de/en/studierende/aus-dem-ausland/wegweiser/add_info/private_health_ins
+In this page only the Public statutory health insurance providers are shown in the map.</p>
+</span><p> <button onClick = "aboutFn5()" id = "about5">Read more</button>
+      </div>   
+    </div>
+	
+	
+	<div class="carousel-item">
+			<!--<img src="images/Background3.jpg" alt="page5" width="800" height="600">-->
+			<div class="carousel-caption">
+				<table id = "formalites"style = "width:100%">
+					<tr>
+						<th>Health insurance</th>
+						<th>University registration</th>
+						<th>Residence permit</th>
+						<th>Public transport</th>
+					</tr>
+					
+					<tr>
+						<td> <p> Health insurance is mandatory for everyone living in Germany.<span id="dots">...</span><span id ="more">If you already have a health insurance first please make sure the coverage is suitable for living in Germany. This can be done by asking your health insurance provider. If it is suitable then you can proceed to your next formalities which are tax, Bank account or university matriculation. by clicking next button. If you do not have health insurance yet you have two possibilities; Public statutory health insurance and Private health insurance. In both sector there are many health insurance providers in Germany and it is your responsibility to choose and decide which insurance and benefits are right for you. We recommend taking time and reviewing the available once carefully. For the privet health insurance providers please click on the following link to get an overview of some health insurance companies<a href="https://www.international.hu-berlin.de/en/studierende/aus-dem-ausland/wegweiser/add_info/private_health_ins">Visit our HTML tutorial</a> In this page you will only find the location and required document iformation for Public statutory health insurance providers are shown in the map.</span></p> <button onClick = "aboutFn()" id = "about">Read more</button></td>
+						<td> <p> Finish registration</p></td>
+						<td> <p> Extend your stay in Germany.</p> </td>
+						<td> <p> This is an optional formalitiy.</p></td>
+					</tr>
+					<tr>
+						<td> <input id="btn5" type="button" value="Health insurance" 
+							onclick="window.location.href = 'index6.html'" /></td>
+						<td><input id="btn5" type="button" value="universities" 
+							onclick="window.location.href = 'index7.html'" /> </td>
+						<td><input id="btn5" type="button" value="Residence permit" 	
+							onclick="window.location.href = 'index8.html'" /> </td>
+						<td><input id="btn5" type="button" value="ticket shops" 
+							onclick="window.location.href = 'index8.html'" /> </td>
+					</tr>
+				</table>
+					
+      </div>   
+    </div>
+	
+	
+  </div>
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+	<script>
+		function aboutFn(){
+		var dots = document.getElementById("dots");
+		var moreText = document.getElementById("more");
+		var buttonText = document.getElementById("about");
+		
+		if(dots.style.display ==="none"){
+			dots.style.display = "inline";
+			buttonText.innerHTML = "Read more";
+			moreText.style.display = "none"}
+		else{
+			dots.style.display = "none";
+			buttonText.innerHTML = "Read less";
+			moreText.style.display = "inline"}
+		}
+</script>
+<script>		
+		function aboutFn2(){
+		var dots2 = document.getElementById("dots2");
+		var moreText2 = document.getElementById("more2");
+		var buttonText2 = document.getElementById("about2");
+		
+		if(dots2.style.display ==="none"){
+			dots2.style.display = "inline";
+			buttonText2.innerHTML = "Read more";
+			moreText2.style.display = "none"}
+		else{
+			dots2.style.display = "none";
+			buttonText2.innerHTML = "Read less";
+			moreText2.style.display = "inline"}
+		}
+	</script>
+<script>		
+		function aboutFn3(){
+		var dots3 = document.getElementById("dots3");
+		var moreText3 = document.getElementById("more3");
+		var buttonText3 = document.getElementById("about3");
+		
+		if(dots3.style.display ==="none"){
+			dots3.style.display = "inline";
+			buttonText3.innerHTML = "Read more";
+			moreText3.style.display = "none"}
+		else{
+			dots3.style.display = "none";
+			buttonText3.innerHTML = "Read less";
+			moreText3.style.display = "inline"}
+		}
+	</script>	
+	<script>		
+		function aboutFn4(){
+		var dots4 = document.getElementById("dots4");
+		var moreText4 = document.getElementById("more4");
+		var buttonText4 = document.getElementById("about4");
+		
+		if(dots4.style.display ==="none"){
+			dots4.style.display = "inline";
+			buttonText4.innerHTML = "Read more";
+			moreText4.style.display = "none"}
+		else{
+			dots4.style.display = "none";
+			buttonText4.innerHTML = "Read less";
+			moreText4.style.display = "inline"}
+		}
+	</script>
+	<script>		
+		function aboutFn5(){
+		var dots5 = document.getElementById("dots5");
+		var moreText5 = document.getElementById("more5");
+		var buttonText5 = document.getElementById("about5");
+		
+		if(dots5.style.display ==="none"){
+			dots5.style.display = "inline";
+			buttonText5.innerHTML = "Read more";
+			moreText5.style.display = "none"}
+		else{
+			dots5.style.display = "none";
+			buttonText5.innerHTML = "Read less";
+			moreText5.style.display = "inline"}
+		}
+	</script>	
+	
+	<script>function CityRegistration() {
+			document.getElementById("next").innerHTML = "The next step is opening/activate blocked bank accout. <br>For this you need a Tax Identification. Additional information about Tax identification will be found on next slide.";
+			}
+	</script>
+	<script>
+		function unhide() {
+    var hid = document.getElementsByClassName("and");
+    // Emulates jQuery $(element).is(':hidden');
+    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+        hid[0].style.visibility = "visible";
+    }
+}
+ /*$(document).ready(function () {
+$( "#btn2" ).load( "ajax/index2.html #map2")
+});*/
+	</script>
+	
+
+	<!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>
